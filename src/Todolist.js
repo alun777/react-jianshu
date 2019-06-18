@@ -17,7 +17,7 @@ class Todolist extends Component {
     return (
       <Fragment>
         <div>
-          <label htmlFor="insertArea">Typing:</label>
+          <label htmlFor="insertArea">Enter: </label>
           <input
             id="insertArea"
             className="input"
@@ -30,11 +30,11 @@ class Todolist extends Component {
             submit
           </button>
         </div>
-        <ul>
+        <ul ref={(ul) => { this.ul = ul }}>
           {
             this.state.list.map((item, index) => {
               return (
-                <div key={index}>
+                <div key={item}>
                   {/*<li 
                 key={index}
                 onClick={this.handleItemDelete.bind(this, index)}
@@ -61,8 +61,8 @@ class Todolist extends Component {
     })
   }
 
-  handleBtnClick() { 
-    
+  handleBtnClick() {
+
     // ES5
     // const newList = this.state.list
     // newList.push(this.state.inputValue)
@@ -74,8 +74,12 @@ class Todolist extends Component {
     this.setState({
       list: [...this.state.list, this.state.inputValue],
       inputValue: ''
+    }, () => {
+      console.log(this.ul.querySelectorAll('div').length)
+
     })
   }
+
   handleItemDelete(index) {
     const list = [...this.state.list]
     list.splice(index, 1);
@@ -84,4 +88,5 @@ class Todolist extends Component {
     })
   }
 }
+
 export default Todolist;

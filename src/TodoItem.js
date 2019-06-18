@@ -20,9 +20,15 @@ class TodoItem extends Component {
 }
 
 TodoItem.propTypes = {
-  content: PropTypes.string,
+  content: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   handleItemDelete: PropTypes.func,
-  index: PropTypes.number
+  index: PropTypes.number.isRequired
 }
+
+TodoItem.defaultProps = {
+
+}
+
+
 
 export default TodoItem;
