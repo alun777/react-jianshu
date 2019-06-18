@@ -9,6 +9,9 @@ class Todolist extends Component {
       inputValue: '',
       list: []
     }
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleBtnClick = this.handleBtnClick.bind(this)
+    this.handleItemDelete = this.handleItemDelete.bind(this)
   }
   render() {
     return (
@@ -19,11 +22,13 @@ class Todolist extends Component {
             id="insertArea"
             className="input"
             value={this.state.inputValue}
-            onChange={this.handleInputChange.bind(this)}
+            onChange={this.handleInputChange}
           />
           <button
-            onClick={this.handleBtnClick.bind(this)}
-          >submit</button>
+            onClick={this.handleBtnClick}
+          >
+            submit
+          </button>
         </div>
         <ul>
           {
@@ -40,12 +45,9 @@ class Todolist extends Component {
                   <TodoItem
                     content={item}
                     index={index}
-                    handleItemDelete = {this.handleItemDelete.bind(this)}
-
+                    handleItemDelete={this.handleItemDelete}
                   />
-
                 </div>
-
               )
             })
           }
@@ -59,7 +61,8 @@ class Todolist extends Component {
     })
   }
 
-  handleBtnClick() {
+  handleBtnClick() { 
+    
     // ES5
     // const newList = this.state.list
     // newList.push(this.state.inputValue)
@@ -67,7 +70,7 @@ class Todolist extends Component {
     //   list: newList
     // })
 
-    // using ...
+    // or using ...
     this.setState({
       list: [...this.state.list, this.state.inputValue],
       inputValue: ''

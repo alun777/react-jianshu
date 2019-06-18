@@ -13,7 +13,6 @@ class TodoItem extends Component {
   }
   handleClick() {
     this.props.handleItemDelete(this.props.index)
-
   }
 }
 
