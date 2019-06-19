@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './Todolist.css'
 import TodoItem from './TodoItem';
+import axios from 'axios'
 
 class Todolist extends Component {
   constructor(props) {
@@ -55,6 +56,21 @@ class Todolist extends Component {
       </Fragment>
     )
   }
+
+  componentDidMount() {
+    axios.get('http://localhost.charlesproxy.com:3000/api/todolist')
+      .then((res)=>{
+        this.setState(()=>{
+          return {
+            list: res.data
+          }
+        })
+      })
+      .catch(()=>{})
+      
+  }
+
+
   handleInputChange(e) {
     this.setState({
       inputValue: e.target.value
