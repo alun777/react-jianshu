@@ -9,7 +9,8 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-transition-group": "^4.1.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,5 +32,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://www.easy-mock.com/mock/5d0f1ffe7e96485dab376807"
 }
