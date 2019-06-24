@@ -1,4 +1,3 @@
-import axios from 'axios';
 
 export const getInputChangeAction = (value) => ({
   type: 'change_input_value',
@@ -19,13 +18,7 @@ export const initListAction = (data) => ({
   data
 });
 
-export const getTodoList = () => {
-  return (dispatch) => {
-    axios.get('https://www.easy-mock.com/mock/5d0f1ffe7e96485dab376807/list.json').then((res)=>{
-      const data = res.data;
-      const action = initListAction(data);
-      dispatch(action);
-    })
-  }
-}
+export const getInitList = () => ({
+  type: 'get_init_list'
+});
 
