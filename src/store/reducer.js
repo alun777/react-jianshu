@@ -13,7 +13,6 @@ export default (state = defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.push(newState.inputValue);
     newState.inputValue = '';
-    console.log(newState)
     return newState;
   }
   if (action.type === 'delete_todo_item') {
@@ -24,6 +23,7 @@ export default (state = defaultState, action) => {
   if (action.type === 'init_list_action') {
     const newState = JSON.parse(JSON.stringify(state));
     newState.list = action.data;
+    newState.inputValue = '';
     return newState;
   }
   return state;

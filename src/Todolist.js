@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import store from "./store/index"
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction, initListAction } from './store/actionCreators';
+import { getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList } from './store/actionCreators';
 import TodolistUI from './TodolistUI';
-import axios from 'axios';
 
 class Todolist extends Component {
 
@@ -29,11 +28,8 @@ class Todolist extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://www.easy-mock.com/mock/5d0f1ffe7e96485dab376807/list.json').then((res)=>{
-      const data = res.data;
-      const action = initListAction(data);
-      store.dispatch(action);
-    })
+    const action = getTodoList();
+    store.dispatch(action);
   }
 
   handleStoreChange() {
